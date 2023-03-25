@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<School.Models.Teacher>
 @{
     ViewBag.Title = "List";
 }
@@ -12,7 +12,7 @@
     @foreach (var teacher in Model)
     {
         <div class="listitem row">
-            <div class="col-md-12"><a href="/Teacher/Show/@teacher.TeacherID">@teacher.TeacherFname @teacher.TeacherLname</a></div>
+            <div class="col-md-12"><a href="/TeacherData/Show/@teacher.TeacherId">@teacher.TeacherFName @teacher.TeacherLName</a></div>
         </div>
     }
 </div>
