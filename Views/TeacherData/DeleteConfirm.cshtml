@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "DeleteConfirm";
+}
+
+<h2>DeleteConfirm</h2>
+
+
+<div id="containershow">
+    <nav>
+        <a class="navlink" href="/TeacherData/Show/@Model.TeacherId">Cancel</a>
+    </nav>
+    <h2>Are you sure you want to delete @Model.TeacherFName @Model.TeacherLName?</h2>
+    <p>This action cannot be undone.</p>
+    <form method="POST" action="/TeacherData/Delete/@Model.TeacherId">
+        <button class="delbutton">
+            Confirm Delete
+        </button>
+    </form>
+</div>
