@@ -175,6 +175,37 @@ namespace School.Controllers
 
 
         }
+        [HttpPost]
+        [EnableCors(origins: "*", methods: "*", headers: "*")]
+        public void UpdateTeacher(int id, [FromBody] Teacher TeacherInfo)
+        {
+            //Create an instance of a connection
+            MySqlConnection Conn = School.AccessDatabase();
+
+            //Debug.WriteLine(AuthorInfo.AuthorFname);
+
+            //Open the connection between the web server and database
+            Conn.Open();
+
+            //Establish a new command (query) for our database
+            MySqlCommand cmd = Conn.CreateCommand();
+
+            //SQL QUERY
+            cmd.CommandText = "update teachers set TeacherFName=@TeacherFName, TeacherLName=@TeacherLname, EmployeeNumber=@EmployeeNumber, Salary=@Salary  where Teacherid=@Teacherid";
+            cmd.Parameters.AddWithValue("@TeacherFName", TeacherInfo.TeacherFName);
+            cmd.Parameters.AddWithValue("@TeacherLname", TeacherInfo.TeacherLName);
+            cmd.Parameters.AddWithValue("@EmployeeNumber", TeacherInfo.EmployeeNumber);
+            cmd.Parameters.AddWithValue("@Salary", TeacherInfo.Salary);
+            cmd.Parameters.AddWithValue("@Teacherid", id);
+
+            cmd.Prepare();
+
+            cmd.ExecuteNonQuery();
+
+            Conn.Close();
+
+
+        }
 
     }
 }

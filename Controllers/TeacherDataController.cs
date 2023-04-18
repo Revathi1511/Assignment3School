@@ -19,7 +19,7 @@ namespace School.Controllers
             return View(TeachersName);
         }
 
-        public ActionResult Show(int id) 
+        public ActionResult Show(int id)
         {
             TeacherController controller = new TeacherController();
             Teacher Teacher = controller.FindTeacher(id);
@@ -52,7 +52,7 @@ namespace School.Controllers
             return View();
         }
 
-        //GET : /Author/Ajax_New
+        //GET : /Teacher/Ajax_New
         public ActionResult Ajax_New()
         {
             return View();
@@ -81,6 +81,52 @@ namespace School.Controllers
             controller.AddTeacher(NewTeacher);
 
             return RedirectToAction("Index");
+        }
+        public ActionResult Update(int id)
+        {
+            TeacherController controller = new TeacherController();
+            Teacher SelectedAuthor = controller.FindTeacher(id);
+
+            return View(SelectedAuthor);
+        }
+
+        public ActionResult Ajax_Update(int id)
+        {
+            TeacherController controller = new TeacherController();
+            Teacher SelectedAuthor = controller.FindTeacher(id);
+
+            return View(SelectedAuthor);
+        }
+
+
+        /// <summary>
+        /// Receives a POST request containing information about an existing author in the system, with new values. Conveys this information to the API, and redirects to the "Author Show" page of our updated author.
+        /// </summary>
+        /// <param name="id">Id of the Author to update</param>
+        /// <param name="AuthorFname">The updated first name of the author</param>
+        /// <param name="AuthorLname">The updated last name of the author</param>
+        /// <param name="AuthorBio">The updated bio of the author.</param>
+        /// <param name="AuthorEmail">The updated email of the author.</param>
+        /// <returns>A dynamic webpage which provides the current information of the author.</returns>
+        /// <example>
+        /// POST : /Author/Update/10
+        /// FORM DATA / POST DATA / REQUEST BODY 
+        /// {
+        ///	"AuthorFname":"Christine",
+        ///	"AuthorLname":"Bittle",
+        ///	"AuthorBio":"Loves Coding!",
+        ///	"AuthorEmail":"christine@test.ca"
+        /// }
+        /// </example>
+        [HttpPost]
+        public ActionResult Update(int id, Teacher Teacherinfo) { 
+            
+        
+
+            TeacherController controller = new TeacherController();
+            controller.UpdateTeacher(id, Teacherinfo);
+
+            return RedirectToAction("Show/" + id);
         }
     }
 }
