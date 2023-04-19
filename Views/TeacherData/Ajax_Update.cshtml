@@ -1,7 +1,39 @@
-﻿
+﻿@model School.Models.Teacher
 @{
     ViewBag.Title = "Ajax_Update";
 }
 
 <h2>Ajax_Update</h2>
 
+<div id="containershow">
+    <nav>
+        <a class="navlink" href="/TeacherData/Index">Back To Teachers</a>
+    </nav>
+    <h2>New Teacher</h2>
+
+    <div class="inputrow">
+        <label for="TeacherFName">First Name:</label>
+        <input type="text" id="TeacherFName" name="TeacherFName" value="@Model.TeacherFName" />
+
+    </div>
+    <div class="inputrow">
+        <label for="TeacherLName">Last Name:</label>
+        <input type="text" id="TeacherLName" name="TeacherLName" value="@Model.TeacherLName" />
+
+    </div>
+    <div class="inputrow">
+        <label for="Salary">Salary:</label>
+        <input type="text" id="Salary" name="Salary" value="@Model.Salary" />
+    </div>
+    <div class="inputrow">
+        <label for="employeenumber">Employeenumber:</label>
+        <div>
+            <textarea id="employeenumber" name="employeenumber">@Model.EmployeeNumber</textarea>
+        </div>
+    </div>
+    @{
+        //AddAuthor() is a JS method defined in /Scripts/authors.js
+    }
+    <button onclick="UpdateTeacher(@Model.TeacherId);">Add Teacher</button>
+</div>
+<script src="~/Scripts/teachers.js"></script>

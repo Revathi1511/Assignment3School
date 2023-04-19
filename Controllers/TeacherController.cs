@@ -171,10 +171,8 @@ namespace School.Controllers
             cmd.ExecuteNonQuery();
 
             Conn.Close();
-
-
-
         }
+
         [HttpPost]
         [EnableCors(origins: "*", methods: "*", headers: "*")]
         public void UpdateTeacher(int id, [FromBody] Teacher TeacherInfo)
