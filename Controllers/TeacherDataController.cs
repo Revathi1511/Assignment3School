@@ -26,7 +26,7 @@ namespace School.Controllers
             return View(Teacher);
         }
 
-        //GET : /Author/DeleteConfirm/{id}
+        //GET : /Teacher/DeleteConfirm/{id}
         public ActionResult DeleteConfirm(int id)
         {
             TeacherController controller = new TeacherController();
@@ -37,7 +37,7 @@ namespace School.Controllers
         }
 
 
-        //POST : /Author/Delete/{id}
+        //POST : /Teacher/Delete/{id}
         [HttpPost]
         public ActionResult Delete(int id)
         {
@@ -46,7 +46,7 @@ namespace School.Controllers
             return RedirectToAction("Index");
         }
 
-        //GET : /Author/New
+        //GET : /Teacher/New
         public ActionResult New()
         {
             return View();
@@ -59,7 +59,7 @@ namespace School.Controllers
 
         }
 
-        //POST : /Author/Create
+        //POST : /Teacher/Create
         [HttpPost]
         public ActionResult Create(Teacher NewTeacher)
         {
@@ -85,37 +85,37 @@ namespace School.Controllers
         public ActionResult Update(int id)
         {
             TeacherController controller = new TeacherController();
-            Teacher SelectedAuthor = controller.FindTeacher(id);
+            Teacher SelectedTeacher = controller.FindTeacher(id);
 
-            return View(SelectedAuthor);
+            return View(SelectedTeacher);
         }
 
         public ActionResult Ajax_Update(int id)
         {
             TeacherController controller = new TeacherController();
-            Teacher SelectedAuthor = controller.FindTeacher(id);
+            Teacher SelectedTeacher = controller.FindTeacher(id);
 
-            return View(SelectedAuthor);
+            return View(SelectedTeacher);
         }
 
 
         /// <summary>
         /// Receives a POST request containing information about an existing author in the system, with new values. Conveys this information to the API, and redirects to the "Author Show" page of our updated author.
         /// </summary>
-        /// <param name="id">Id of the Author to update</param>
-        /// <param name="AuthorFname">The updated first name of the author</param>
-        /// <param name="AuthorLname">The updated last name of the author</param>
-        /// <param name="AuthorBio">The updated bio of the author.</param>
-        /// <param name="AuthorEmail">The updated email of the author.</param>
-        /// <returns>A dynamic webpage which provides the current information of the author.</returns>
+        /// <param name="id">Id of the Teacher to update</param>
+        /// <param name="TeacherFname">The updated first name of the Teacher</param>
+        /// <param name="TeacherLname">The updated last name of the Teacher</param>
+        /// <param name="Salary">The updated bio of the Teacher.</param>
+        /// <param name="Employeeid">The updated email of the Teacher.</param>
+        /// <returns>A dynamic webpage which provides the current information of the Teacher.</returns>
         /// <example>
-        /// POST : /Author/Update/10
+        /// POST : /Teacher/Update/10
         /// FORM DATA / POST DATA / REQUEST BODY 
         /// {
-        ///	"AuthorFname":"Christine",
-        ///	"AuthorLname":"Bittle",
-        ///	"AuthorBio":"Loves Coding!",
-        ///	"AuthorEmail":"christine@test.ca"
+        ///	"TeacherFname":"Revathi",
+        ///	"TeacherLname":"Ravi",
+        ///	"Salary":"54$",
+        ///	"EmployeeID":"EmployeeID"
         /// }
         /// </example>
         [HttpPost]

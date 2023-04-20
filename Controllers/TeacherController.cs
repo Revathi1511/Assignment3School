@@ -105,8 +105,8 @@ namespace School.Controllers
         /// <summary>
         /// Deletes an Author from the connected MySQL Database if the ID of that author exists. Does NOT maintain relational integrity. Non-Deterministic.
         /// </summary>
-        /// <param name="id">The ID of the author.</param>
-        /// <example>POST /api/AuthorData/DeleteAuthor/3</example>
+        /// <param name="id">The ID of the Teacher.</param>
+        /// <example>POST /api/TeacherData/DeleteTeacher/3</example>
         [HttpPost]
         public void DeleteTeacher(int id)
         {
@@ -139,10 +139,10 @@ namespace School.Controllers
         /// POST api/TeacherData/AddTeacher 
         /// FORM DATA / POST DATA / REQUEST BODY 
         /// {
-        ///	"AuthorFname":"Christine",
-        ///	"AuthorLname":"Bittle",
-        ///	"AuthorBio":"Likes Coding!",
-        ///	"AuthorEmail":"christine@test.ca"
+        ///	"TeacherFname":"Revathi",
+        ///	"TeacherLname":"Ravi",
+        ///	"salary":"45$",
+        ///	"EmployeeId":"T20234"
         /// }
         /// </example>
         [HttpPost]
@@ -180,7 +180,7 @@ namespace School.Controllers
             //Create an instance of a connection
             MySqlConnection Conn = School.AccessDatabase();
 
-            //Debug.WriteLine(AuthorInfo.AuthorFname);
+            //Debug.WriteLine(TeacherFname.TeacherLname);
 
             //Open the connection between the web server and database
             Conn.Open();
